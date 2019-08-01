@@ -49,7 +49,6 @@ class LobbySystem extends PluginBase {
 
     public function giveItems(Player $player, $get)
     {
-        $player->getInventory()->clearAll();
         $player->getInventory()->setItem($get[3], Item::get($get[0], $get[1], $get[2])->setCustomName($get[4]));
 
     }

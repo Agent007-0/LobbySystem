@@ -35,6 +35,7 @@ class EventListener implements Listener {
 
     public function onJoin(PlayerJoinEvent $event)
     {
+        $event->getPlayer()->getInventory()->clearAll();
         $event->getPlayer()->setGamemode(LobbySystem::getInstance()->settings()->get("gamemode"));
         foreach (LobbySystem::getInstance()->settings()->get("items") as $item) {
             LobbySystem::getInstance()->giveItems($event->getPlayer(), explode("-", $item));
